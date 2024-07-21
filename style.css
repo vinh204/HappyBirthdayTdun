@@ -863,7 +863,7 @@ body {
         animation: scaleUpDown 5s ease-in-out infinite;
     }
     .image1 {
-        top: 100px;
+        top: 70px;
         left: -64px;
         animation: swing1 2s ease-in-out infinite;
     }
@@ -873,7 +873,7 @@ body {
         animation: scaleCricle2 7s 7s forwards ease-in-out;
     }
     .image2 {
-        top: 150px; 
+        top: 120px; 
         left: -42px;
         animation: swing2 2.5s ease-in-out infinite;
     }
@@ -882,8 +882,8 @@ body {
         animation: scaleCricle2 7.5s 7s forwards ease-in-out;
     }
     .image3 {
-        top: 130px; 
-        left: -10px;
+        top: 100px; 
+        left: 15px;
         animation: swing3 3s ease-in-out infinite;
     }
     .image3 img {

@@ -78,6 +78,7 @@ body {
 #btn__letter{
     position: relative;
     margin-top: 30px;
+    color: black;
     background-color: var(--color-text-pink);
     outline: none;
     padding: 5px 15px;

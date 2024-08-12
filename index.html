@@ -7,9 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-</head> 
+</head>
+<header id="header">
+    <div class="countdown-container">
+        <div class="countdown" id="countdown">
+            <div class="time-section">
+                <div id="hours">00</div>
+                <span>Hours</span>
+            </div>
+            <div class="time-section">
+                <div id="minutes">00</div>
+                <span>Minutes</span>
+            </div>
+            <div class="time-section">
+                <div id="seconds">00</div>
+                <span>Seconds</span>
+            </div>
+        </div>
+        <div class="message" id="message">
+            TdunCute please come back at 0:00 on August 13
+        </div>
+</header> 
 <body>
-    <audio id="background-music" src="music/music1.mp3" preload="auto"></audio>
+    <audio id="background-music" src="/music/music1.mp3" preload="auto"></audio>
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./images/1.png" alt="" width="350" class="flag__left">
@@ -167,9 +187,34 @@
     </div>
 </body>
 <script>
+    function calculateTimeLeft() {
+        var targetDate = new Date('August 13, 2024 00:00:00').getTime();
+
+        var now = new Date().getTime();
+
+        var timeLeft = targetDate - now;
+
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById('hours').textContent = (hours < 10 ? '0' : '') + hours;
+        document.getElementById('minutes').textContent = (minutes < 10 ? '0' : '') + minutes;
+        document.getElementById('seconds').textContent = (seconds < 10 ? '0' : '') + seconds;
+
+        if (timeLeft < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById('wrapper').style.display = "block";
+            document.getElementById('header').style.display = "none";
+        }
+    }
+
+    var countdownTimer = setInterval(calculateTimeLeft, 1000);
+
+    calculateTimeLeft();
     let datetxt = "13 - 08 - 2005";
     let datatxtletter = "Chúc mừng sinh nhật tình yêu bé bỏng của anh! Mong rằng mọi điều ước của bé đều trở thành hiện thực và chúng ta sẽ luôn bên nhau, cùng nhau vượt qua mọi thử thách trong cuộc sống. Chúc bé tuổi mới sẽ có nhiều niềm vui và bất ngờ thú vị. Mãi mãi là em bé của anh 💕";
-    let titleLetter = "Gửi bé tdun";
+    let titleLetter = "Gửi bé tdun cute";
     let charArrDate = datetxt.split('');
     let charArrDateLetter = datatxtletter.split('');
     let charArrTitle = titleLetter.split('');
